@@ -11,13 +11,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
+    // creating list view and array list
     ListView myListView;
     ArrayList<String> multTable;
 
+    // method that updates the table
     public void updateListView (int i)
     {
-
-
         multTable.add(Integer.toString(i*1));
         multTable.add(Integer.toString(i*2));
         multTable.add(Integer.toString(i*3));
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity
         multTable.add(Integer.toString(i*9));
         multTable.add(Integer.toString(i*10));
 
+        // link array list to the list view
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, multTable);
         myListView.setAdapter(arrayAdapter);
     }
@@ -39,8 +40,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // creating seekbar, setting max to 10
         SeekBar numberSeekBar = (SeekBar) findViewById(R.id.seekBar);
-        numberSeekBar.setMax(10);
+        numberSeekBar.setMax(20);
 
         myListView = (ListView) findViewById(R.id.listView);
         multTable = new ArrayList<String>();
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
+                // clear the list before updating it
                 multTable.clear();
                 updateListView(i);
             }
