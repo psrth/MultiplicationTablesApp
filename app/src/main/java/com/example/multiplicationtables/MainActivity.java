@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity
         // creating seekbar, setting max to 10
         SeekBar numberSeekBar = (SeekBar) findViewById(R.id.seekBar);
         numberSeekBar.setMax(20);
+        numberSeekBar.setMin(1);
 
         myListView = (ListView) findViewById(R.id.listView);
         multTable = new ArrayList<String>();
